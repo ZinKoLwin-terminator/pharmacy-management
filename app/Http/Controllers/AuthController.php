@@ -10,4 +10,9 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+
+    public function forgot(Request $request)
+    {
+        return view('auth.forgot');
+    }
 }
