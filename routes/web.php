@@ -28,3 +28,7 @@ Route::group(['middleware' => 'admin'], function () {
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
+
+Route::get('reset/{token}', [AuthController::class, 'getReset']);
+
+Route::post('reset/{token}', [AuthController::class, 'postReset']);
