@@ -21,6 +21,8 @@ Route::get('forgot', [AuthController::class, 'forgot']);
 
 Route::post('login_post', [AuthController::class, 'login_post']);
 
+Route::post('forgot_post', [AuthController::class, 'forgot_post']);
+
 Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
 });
