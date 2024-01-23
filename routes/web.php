@@ -32,6 +32,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/customers/add', [CustomerController::class, 'add_customers']);
 
     Route::post('admin/customers/add', [CustomerController::class, 'insert_add_customers']);
+
+    Route::get('admin/customers/edit/{id}', [CustomerController::class, 'edit_customers']);
+
+    Route::post('admin/customers/edit/{id}', [CustomerController::class, 'update_customers']);
+
+    Route::get('admin/customers/delete/{id}', [CustomerController::class, 'delete_customers']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);

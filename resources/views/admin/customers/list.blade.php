@@ -41,7 +41,12 @@
                             <td>{{$value->doctor_name}}</td>
                             <td>{{$value->doctor_address}}</td>
                             <td>{{date('d-m-Y H:i:s',strtotime($value->created_at))}}</td>
-                            <td>Action</td>
+                            <td>
+                                <a href="{{url('admin/customers/edit/'.$value->id)}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+
+                                <a href="{{url('admin/customers/delete/'.$value->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash"></i></a>
+
+                            </td>
                         </tr>
                            @endforeach
                         </tbody>

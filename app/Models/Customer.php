@@ -15,4 +15,9 @@ class Customer extends Model
     {
         return self::get();
     }
+
+    public static function getSingle($id)
+    {
+        return self::find($id);
+    }
 }
