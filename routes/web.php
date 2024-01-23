@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\MedicineController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,11 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/customers/edit/{id}', [CustomerController::class, 'update_customers']);
 
     Route::get('admin/customers/delete/{id}', [CustomerController::class, 'delete_customers']);
+
+    //medicine start
+    Route::get('admin/medicines', [MedicineController::class, 'medicines']);
+
+    Route::get('admin/medicines/add', [MedicineController::class, 'add_medicines']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
