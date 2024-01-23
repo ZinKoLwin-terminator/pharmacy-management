@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::post('forgot_post', [AuthController::class, 'forgot_post']);
 
 Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard']);
+
+    Route::get('admin/customers', [CustomerController::class, 'customers']);
+
+    Route::get('admin/customers/add', [CustomerController::class, 'add_customers']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
