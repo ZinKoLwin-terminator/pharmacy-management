@@ -26,20 +26,24 @@
                                 <th scope="col">Address</th>
                                 <th scope="col">Doctor Name</th>
                                 <th scope="col">Doctor Address</th>
+                                <th scope="col">Created At</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Error</td>
-                                <td>+983840304</td>
-                                <td>UK</td>
-                                <td>Solution</td>
-                                <td>USA</td>
-                                <td>Action</td>
-                            </tr>
+                           @foreach ($getRecord as $value)
+                           <tr>
+                            <th scope="row">{{$value->id}}</th>
+                            <td>{{$value->name}}</td>
+                            <td>{{$value->contact_number}}</td>
+                            <td>{{$value->address }}</td>
+                            <td>{{$value->doctor_name}}</td>
+                            <td>{{$value->doctor_address}}</td>
+                            <td>{{date('d-m-Y H:i:s',strtotime($value->created_at))}}</td>
+                            <td>Action</td>
+                        </tr>
+                           @endforeach
                         </tbody>
                     </table>
                 </div>
