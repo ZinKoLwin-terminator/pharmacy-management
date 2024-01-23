@@ -30,6 +30,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/customers', [CustomerController::class, 'customers']);
 
     Route::get('admin/customers/add', [CustomerController::class, 'add_customers']);
+
+    Route::post('admin/customers/add', [CustomerController::class, 'insert_add_customers']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
