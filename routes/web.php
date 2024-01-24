@@ -50,6 +50,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/medicines/edit/{id}', [MedicineController::class, 'edit_medicines']);
 
     Route::post('admin/medicines/edit/{id}', [MedicineController::class, 'add_update_edit']);
+
+    Route::get('admin/medicines/delete/{id}', [MedicineController::class, 'delete_medicines']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);

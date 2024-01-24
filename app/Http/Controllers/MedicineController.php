@@ -10,7 +10,7 @@ class MedicineController extends Controller
 {
     public function medicines(Request $request)
     {
-        $data['getRecord'] = Medicine::get();
+        $data['getRecord'] = Medicine::where('isDeleted', '=', 0)->get();
 
         return view('admin.medicines.list', $data);
     }
@@ -55,5 +55,19 @@ class MedicineController extends Controller
         $SaveUpdate->save();
 
         return redirect('admin/medicines')->with('success', 'Medicines successfully updated');
+    }
+
+    public function delete_medicines($id)
+    {
+        $deleteRecord = Medicine::find($id);
+
+        // soft delete
+        $deleteRecord->isDeleted = 1;
+        $deleteRecord->save();
+
+        // hard delete
+        // $deleteRecord->delete();
+
+        return redirect()->back()->with('success', "Record Deleted");
     }
 }
