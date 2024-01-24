@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Medicine;
 
+use App\Models\MedicinesStock;
+
 class MedicineController extends Controller
 {
     public function medicines(Request $request)
@@ -69,5 +71,31 @@ class MedicineController extends Controller
         // $deleteRecord->delete();
 
         return redirect()->back()->with('success', "Record Deleted");
+    }
+
+    public function medicines_stock_list()
+    {
+        return view('admin.medicines_stock.list');
+    }
+
+    public function medicines_stock_add()
+    {
+        $data['getRecord'] = Medicine::where('isDeleted', '=', 0)->get();
+        return view('admin.medicines_stock.add', $data);
+    }
+
+    public function medicines_stock_store(Request $request)
+    {
+        $saveUpdate = new MedicinesStock;
+
+        $saveUpdate->medicines_id = $request->medicines_id;
+        $saveUpdate->batch_id = $request->batch_id;
+        $saveUpdate->expiry_date = $request->expiry_date;
+        $saveUpdate->quantity = $request->quantity;
+        $saveUpdate->mrp = $request->mrp;
+        $saveUpdate->rate = $request->rate;
+        $saveUpdate->save();
+
+        return redirect('admin/medicines_stock')->with('success', 'Medicines Stock successfully saved');
     }
 }

@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Medicines</h5>
-                    @include('admin.medicines._form');
+                    @include('admin.medicines._form')
 
                 </div>
             </div>
