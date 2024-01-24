@@ -10,4 +10,9 @@ class MedicinesStock extends Model
     use HasFactory;
 
     protected $table = 'medicines_stock';
+
+    public function getMedicinesName()
+    {
+        return $this->belongsTo(Medicine::class, 'medicines_id');
+    }
 }
