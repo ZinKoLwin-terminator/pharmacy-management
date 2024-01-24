@@ -44,6 +44,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/medicines', [MedicineController::class, 'medicines']);
 
     Route::get('admin/medicines/add', [MedicineController::class, 'add_medicines']);
+
+    Route::post('admin/medicines/add_M', [MedicineController::class, 'add_update_M']);
+
+    Route::get('admin/medicines/edit/{id}', [MedicineController::class, 'edit_medicines']);
+
+    Route::post('admin/medicines/edit/{id}', [MedicineController::class, 'add_update_edit']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);

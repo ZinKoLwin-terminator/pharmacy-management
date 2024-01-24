@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="pagetitle">
-    <h1>Add Medicines</h1>
+    <h1>Edit Medicines</h1>
 </div>
 
 <section class="section">

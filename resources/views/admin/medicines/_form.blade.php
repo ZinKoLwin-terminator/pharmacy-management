@@ -1,11 +1,19 @@
-<form action="{{url('admin/medicines/add')}}" method="POST" enctype="multipart/form-data">
+@if (!empty($getRecord))
+
+<form action="{{url('admin/medicines/edit/'.$getRecord->id)}}" method="POST" enctype="multipart/form-data">
+@else
+
+<form action="{{url('admin/medicines/add_M')}}" method="POST" enctype="multipart/form-data">
+
+@endif
+
     {{ csrf_field() }}
     <div class="row mb-3">
         <label class="col-sm-2 col-form-label">
            Medicine Name <span style="color: red">*</span>
         </label>
         <div class="col-sm-10">
-            <input type="text" name="name" class="form-control" required>
+            <input type="text" name="name" class="form-control" value="{{old('name',!empty($getRecord)?$getRecord->name : '')}}" required>
         </div>
     </div>
 
@@ -14,7 +22,7 @@
             Packing <span style="color: red">*</span>
         </label>
         <div class="col-sm-10">
-            <input type="text" name="packing" class="form-control" required>
+            <input type="text" name="packing" class="form-control" value="{{old('packing',!empty($getRecord)?$getRecord->packing : '')}}" required>
         </div>
     </div>
 
@@ -23,7 +31,7 @@
             Generic_Name  <span style="color: red">*</span>
         </label>
         <div class="col-sm-10">
-            <input type="text" name="generic_name" class="form-control" required>
+            <input type="text" name="generic_name" class="form-control" value="{{old('generic_name',!empty($getRecord)?$getRecord->generic_name : '')}}" required>
         </div>
     </div>
 
@@ -32,7 +40,7 @@
             Supplier_Name  <span style="color: red">*</span>
         </label>
         <div class="col-sm-10">
-            <input type="text" name="supplier_name" class="form-control" required>
+            <input type="text" name="supplier_name" class="form-control" value="{{old('supplier_name',!empty($getRecord)?$getRecord->supplier_name : '')}}"  required>
         </div>
     </div>
 
