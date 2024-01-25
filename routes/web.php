@@ -84,6 +84,8 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/admin/invoices/add', [InvoiceController::class, 'create']);
 
     Route::post('/admin/invoices/add', [InvoiceController::class, 'store']);
+
+    Route::get('admin/invoices/delete/{id}', [InvoiceController::class, 'delete']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);

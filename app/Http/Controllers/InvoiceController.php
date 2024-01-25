@@ -11,7 +11,7 @@ class InvoiceController extends Controller
     public function index()
     {
         $data['getRecord'] = Invoice::get();
-        return view('admin.invoices.list');
+        return view('admin.invoices.list', $data);
     }
 
     public function create(Request $request)
@@ -36,5 +36,13 @@ class InvoiceController extends Controller
         $save->save();
 
         return redirect('admin/invoices')->with('success', "Invoices successfully created");
+    }
+
+    public function delete($id)
+    {
+        $delete = Invoice::find($id);
+        $delete->delete();
+
+        return redirect('admin/invoices')->with('success', "Record successfully deleted!");
     }
 }
