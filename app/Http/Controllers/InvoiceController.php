@@ -45,4 +45,27 @@ class InvoiceController extends Controller
 
         return redirect('admin/invoices')->with('success', "Record successfully deleted!");
     }
+
+    public function edit($id, Request $request)
+    {
+        $data['oldRecord'] = Invoice::find($id);
+        $data['customers'] = Customer::get();
+        return view('admin.invoices.edit', $data);
+    }
+
+    public function update($id, Request $request)
+    {
+        $saveUpdate = Invoice::find($id);
+
+
+        $saveUpdate->net_total = trim($request->net_total);
+        $saveUpdate->invoices_date =  trim($request->invoices_date);
+        $saveUpdate->customers_id = trim($request->customers_id);
+        $saveUpdate->total_amount = trim($request->total_amount);
+        $saveUpdate->total_discount = trim($request->total_discount);
+
+        $saveUpdate->save();
+
+        return redirect('admin/invoices')->with('success', "Invoices successfully updated");
+    }
 }
