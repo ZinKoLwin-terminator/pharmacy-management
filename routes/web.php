@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -77,6 +78,12 @@ Route::group(['middleware' => 'admin'], function () {
     Route::post('admin/suppliers/edit/{id}', [SupplierController::class, 'update']);
 
     Route::get('admin/suppliers/delete/{id}', [SupplierController::class, 'delete']);
+    //invoices start
+    Route::get('admin/invoices', [InvoiceController::class, 'index']);
+
+    Route::get('/admin/invoices/add', [InvoiceController::class, 'create']);
+
+    Route::post('/admin/invoices/add', [InvoiceController::class, 'store']);
 });
 
 Route::get('logout', [AuthController::class, 'logout']);
