@@ -107,6 +107,11 @@ Route::group(['middleware' => 'admin'], function () {
 
         Route::get('delete/{id}', [PurchaseController::class, 'delete']);
     });
+
+    //my Account
+    Route::get('admin/my_account', [DashboardController::class, 'my_account']);
+
+    Route::post('admin/my_account', [DashboardController::class, 'my_account_update']);
 });
 
 

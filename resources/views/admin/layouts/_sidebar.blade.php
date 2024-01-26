@@ -67,6 +67,15 @@
         </a>
       </li>
 
+      <li class="nav-item">
+        <a class="nav-link  @if (Request::segment(2)=='my_account') @else collapsed
+
+        @endif" href="{{url('admin/my_account')}}">
+          <i class="bi bi-layout-text-window-reverse"></i>
+          <span>My Account</span>
+        </a>
+      </li>
+
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
