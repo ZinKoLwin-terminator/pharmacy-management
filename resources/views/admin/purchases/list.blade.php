@@ -50,9 +50,9 @@
                             @endif</td>
                             <td>{{date('d-m-Y H:i:s',strtotime($value->created_at))}}</td>
                             <td>
-                                <a href="{{url('admin/invoices/edit/'.$value->id)}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
+                                <a href="{{url('admin/purchases/edit/'.$value->id)}}" class="btn btn-success"><i class="bi bi-pencil-square"></i></a>
 
-                                <a href="{{url('admin/invoices/delete/'.$value->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash"></i></a>
+                                <a href="{{url('admin/purchases/delete/'.$value->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete?')"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                            @endforeach

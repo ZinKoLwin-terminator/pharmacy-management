@@ -100,6 +100,12 @@ Route::group(['middleware' => 'admin'], function () {
         Route::get('add', [PurchaseController::class, 'create']);
 
         Route::post('add', [PurchaseController::class, 'store']);
+
+        Route::get('edit/{id}', [PurchaseController::class, 'edit']);
+
+        Route::post('edit/{id}', [PurchaseController::class, 'update']);
+
+        Route::get('delete/{id}', [PurchaseController::class, 'delete']);
     });
 });
 
