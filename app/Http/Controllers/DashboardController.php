@@ -41,9 +41,21 @@ class DashboardController extends Controller
 
         //profile
 
+        // if (!empty($request->file('profile_image'))) {
+        //     if (!empty($save->profile_image) && file_exists('
+        //     upload/profile/' . $save->profile_image)) {
+        //         unlink('upload/profile/' . $save->profile_image);
+        //     }
+
+        //     $file = $request->file('profile_image');
+        //     $randomStr = Str::random(30);
+        //     $filename = $randomStr . '.' . $file->getClientOriginalExtension();
+        //     $file->move('upload/profile/', $filename);
+        //     $save->profile_image = $filename;
+        // }
+
         if (!empty($request->file('profile_image'))) {
-            if (!empty($save->profile_image) && file_exists('
-            upload/profile/' . $save->profile_image)) {
+            if (!empty($save->profile_image) && file_exists('upload/profile/' . $save->profile_image)) {
                 unlink('upload/profile/' . $save->profile_image);
             }
 
@@ -53,6 +65,7 @@ class DashboardController extends Controller
             $file->move('upload/profile/', $filename);
             $save->profile_image = $filename;
         }
+
 
         $save->save();
 
