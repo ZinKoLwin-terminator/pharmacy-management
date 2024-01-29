@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class DashboardController extends Controller
 {
@@ -36,6 +37,21 @@ class DashboardController extends Controller
 
         if (!empty($request->password)) {
             $save->password = Hash::make($request->password);
+        }
+
+        //profile
+
+        if (!empty($request->file('profile_image'))) {
+            if (!empty($save->profile_image) && file_exists('
+            upload/profile/' . $save->profile_image)) {
+                unlink('upload/profile/' . $save->profile_image);
+            }
+
+            $file = $request->file('profile_image');
+            $randomStr = Str::random(30);
+            $filename = $randomStr . '.' . $file->getClientOriginalExtension();
+            $file->move('upload/profile/', $filename);
+            $save->profile_image = $filename;
         }
 
         $save->save();

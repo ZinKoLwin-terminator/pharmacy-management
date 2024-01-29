@@ -39,6 +39,21 @@
 
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">
+                               Profile Image <span style="color: red;"></span>
+                            </label>
+                            <div class="col-sm-10">
+                               <input type="file" class="form-control" name="profile_image" id="formFile">
+                               @if (!empty($getRecord->profile_image))
+
+                               <img src="{{$getRecord->getProfileImage()}}" height="100px" width="100px" alt="">
+
+                               @endif
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label">
                                Password<span style="color: red">*</span>
                             </label>
                             <div class="col-sm-10">
