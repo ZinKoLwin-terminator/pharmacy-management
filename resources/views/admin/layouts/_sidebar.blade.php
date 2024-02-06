@@ -68,6 +68,15 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link  @if (Request::segment(2)=='website_logo') @else collapsed
+
+        @endif" href="{{url('admin/website_logo')}}">
+          <i class="bi bi-dash-circle"></i>
+          <span>Website Logo</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link  @if (Request::segment(2)=='my_account') @else collapsed
 
         @endif" href="{{url('admin/my_account')}}">

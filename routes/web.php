@@ -8,6 +8,7 @@ use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\WebsiteLogoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -112,6 +113,10 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('admin/my_account', [DashboardController::class, 'my_account']);
 
     Route::post('admin/my_account', [DashboardController::class, 'my_account_update']);
+
+    Route::get('admin/website_logo', [WebsiteLogoController::class, 'website_logo']);
+
+    Route::post('admin/website_logo_update', [WebsiteLogoController::class, 'website_logo_update']);
 });
 
 
