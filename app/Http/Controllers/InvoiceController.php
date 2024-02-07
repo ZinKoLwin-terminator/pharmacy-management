@@ -11,12 +11,14 @@ class InvoiceController extends Controller
     public function index()
     {
         $data['getRecord'] = Invoice::get();
+        $data['meta_title'] = "Invoices List";
         return view('admin.invoices.list', $data);
     }
 
     public function create(Request $request)
     {
         $data['getRecord'] = Customer::get();
+        $data['meta_title'] = "Add Invoice";
         return view('admin.invoices.add', $data);
     }
 
@@ -50,6 +52,7 @@ class InvoiceController extends Controller
     {
         $data['oldRecord'] = Invoice::find($id);
         $data['customers'] = Customer::get();
+        $data['meta_title'] = "Edit Invoice";
         return view('admin.invoices.edit', $data);
     }
 

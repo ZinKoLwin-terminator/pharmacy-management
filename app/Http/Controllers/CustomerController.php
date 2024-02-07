@@ -13,13 +13,14 @@ class CustomerController extends Controller
     public function customers(Request $request)
     {
         $data['getRecord'] = Customer::getAllRecord();
-
+        $data['meta_title'] = "Customers List";
         return view('admin.customers.list', $data);
     }
 
     public function add_customers(Request $request)
     {
-        return view('admin.customers.add');
+        $data['meta_title'] = "Add Customer";
+        return view('admin.customers.add', $data);
     }
 
     public function insert_add_customers(Request $request)
@@ -40,6 +41,7 @@ class CustomerController extends Controller
     public function edit_customers($id, Request $request)
     {
         $data['getRecord'] = Customer::getSingle($id);
+        $data['meta_title'] = "Edit Customer";
         return view('admin.customers.edit', $data);
     }
 

@@ -16,7 +16,7 @@ class PurchaseController extends Controller
     {
 
         $data['getRecord'] = Purchase::get();
-
+        $data['meta_title'] = "Purchases List";
 
         return view('admin.purchases.list', $data);
     }
@@ -24,6 +24,7 @@ class PurchaseController extends Controller
     public function  create()
     {
         $data['suppliers'] = Supplier::get();
+        $data['meta_title'] = "Add Purchase";
 
         $data['invoices'] = Invoice::get();
 
@@ -54,6 +55,7 @@ class PurchaseController extends Controller
         $data['oldRecord'] = Purchase::find($id);
         $data['suppliers'] = Supplier::get();
         $data['invoices'] = Invoice::get();
+        $data['meta_title'] = "Edit Purchase";
         return view('admin.purchases.edit', $data);
     }
 

@@ -27,12 +27,14 @@ class DashboardController extends Controller
         $data['TotalSuppliers'] = Supplier::count();
         $data['TotalInvoices'] = Invoice::count();
         $data['TotalPurchases'] = Purchase::count();
+        $data['meta_title'] = 'Dashboard List';
         return view('admin.dashboard.list', $data);
     }
 
     public function my_account(Request $request)
     {
         $data['getRecord'] = User::find(Auth::user()->id);
+        $data['meta_title'] = "Profile Update";
         return view('admin.my_account.update', $data);
     }
 

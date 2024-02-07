@@ -11,12 +11,14 @@ class SupplierController extends Controller
     public function index()
     {
         $data['getRecord'] = Supplier::get();
+        $data['meta_title'] = "Suppliers List";
         return view('admin.suppliers.list', $data);
     }
 
     public function create(Request $request)
     {
-        return view('admin.suppliers.add');
+        $data['meta_title'] = "Add Supplier";
+        return view('admin.suppliers.add', $data);
     }
 
     public function store(Request $request)
@@ -35,6 +37,7 @@ class SupplierController extends Controller
     public function edit($id, Request $request)
     {
         $data['getRecord'] = Supplier::find($id);
+        $data['meta_title'] = "Edit Supplier";
         return view('admin.suppliers.edit', $data);
     }
 

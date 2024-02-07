@@ -13,13 +13,14 @@ class MedicineController extends Controller
     public function medicines(Request $request)
     {
         $data['getRecord'] = Medicine::where('isDeleted', '=', 0)->get();
-
+        $data['meta_title'] = "Medicines List";
         return view('admin.medicines.list', $data);
     }
 
     public function add_medicines(Request $request)
     {
-        return view('admin.medicines.add');
+        $data['meta_title'] = "Add Medicine";
+        return view('admin.medicines.add', $data);
     }
 
     public function add_update_M(Request $request)
@@ -40,7 +41,7 @@ class MedicineController extends Controller
     public function edit_medicines($id)
     {
         $data['getRecord'] = Medicine::find($id);
-
+        $data['meta_title'] = "Edit Medicine";
         return view('admin.medicines.edit', $data);
     }
 
@@ -76,12 +77,14 @@ class MedicineController extends Controller
     public function medicines_stock_list()
     {
         $data['getRecord'] = MedicinesStock::get();
+        $data['meta_title'] = "Medicines Stock List";
         return view('admin.medicines_stock.list', $data);
     }
 
     public function medicines_stock_add()
     {
         $data['getRecord'] = Medicine::where('isDeleted', '=', 0)->get();
+        $data['meta_title'] = "Add Medicine Stock";
         return view('admin.medicines_stock.add', $data);
     }
 
@@ -103,6 +106,7 @@ class MedicineController extends Controller
     public function medicines_stock_delete($id, Request $request)
     {
         $deleteRecord = MedicinesStock::find($id);
+
         $deleteRecord->delete();
 
         return redirect()->back()->with('success', "Record Deleted!");
@@ -111,6 +115,7 @@ class MedicineController extends Controller
     public function medicines_stock_edit($id, Request $request)
     {
         $data['oldRecord'] = MedicinesStock::find($id);
+        $data['meta_title'] = "Edit Medicine Stock";
         $data['getRecord'] = Medicine::where('isDeleted', '=', 0)->get();
         return view('admin.medicines_stock.edit', $data);
     }

@@ -14,6 +14,7 @@ class WebsiteLogoController extends Controller
     public function website_logo(Request $request)
     {
         $data['getRecord'] = Website_logo::find(1);
+        $data['meta_title'] = "Website Logo Update";
         return view('admin.website_logo.update', $data);
     }
 
