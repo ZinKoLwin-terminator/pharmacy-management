@@ -17,6 +17,7 @@ class PurchaseController extends Controller
 
         $data['getRecord'] = Purchase::get();
 
+
         return view('admin.purchases.list', $data);
     }
 

@@ -10,12 +10,24 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\Customer;
+use App\Models\Medicine;
+use App\Models\MedicinesStock;
+use App\Models\Supplier;
+use App\Models\Invoice;
+use App\Models\Purchase;
 
 class DashboardController extends Controller
 {
     public function dashboard()
     {
-        return view('admin.dashboard.list');
+        $data['TotalCustomers'] = Customer::count();
+        $data['TotalMedicines'] = Medicine::count();
+        $data['TotalMedicineStocks'] = MedicinesStock::count();
+        $data['TotalSuppliers'] = Supplier::count();
+        $data['TotalInvoices'] = Invoice::count();
+        $data['TotalPurchases'] = Purchase::count();
+        return view('admin.dashboard.list', $data);
     }
 
     public function my_account(Request $request)

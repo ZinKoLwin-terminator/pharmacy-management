@@ -1,3 +1,5 @@
+{{-- @dd($getRecord); --}}
+
 @extends('admin.layouts.app')
   @section('content')
 
@@ -36,7 +38,7 @@
                            <tr>
                             <th scope="row">{{$value->id}}</th>
                             <td>{{$value->supplier->suppliers_name}}</td>
-                            <td>{{$value->invoice->id}}</td>
+                            <td>{{$value->invoices_id}}</td>
                             <td>{{$value->voucher_number}}</td>
                             <td>{{date('d-m-Y',strtotime($value->purchase_date))}}</td>
                             <td>{{$value->total_amount}}</td>

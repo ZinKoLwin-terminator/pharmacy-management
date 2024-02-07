@@ -44,7 +44,6 @@
                             <div class="col-sm-10">
                                <input type="file" class="form-control" name="profile_image" id="formFile">
                                @if (!empty($getRecord->profile_image))
-
                                <img src="{{$getRecord->getProfileImage()}}" height="100px" width="100px" alt="">
 
                                @endif
